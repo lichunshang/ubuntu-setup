@@ -32,10 +32,10 @@ sudo apt-get install -y nvidia-driver-440
 sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 
 # Slack
-sudo snap install -y slack --classic
+sudo snap install slack --classic
 
 # VSCode
-sudo snap install -y code --classic
+sudo snap install code --classic
 
 # Atom
 wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
@@ -63,7 +63,7 @@ sudo apt-get install -y terminator
 sudo apt-get install -y gparted
 
 # Spotify
-snap install -y spotify
+snap install spotify
 
 # zoom
 sudo apt install -y ./zoom_amd64.deb
