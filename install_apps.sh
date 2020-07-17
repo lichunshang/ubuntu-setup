@@ -1,24 +1,8 @@
-# sudo add-apt-repository ppa:elementary-os/stable
-# sudo add-apt-repository ppa:elementary-os/os-patches
-# sudo apt update
-# sudo apt install elementary-desktop
+set -eu
 
-# sudo apt-get install pantheon-greeter
-
-# Copy to /etc/lightdm/lightdm.conf
-# [Seat:*]
-# greeter-session=pantheon-greeter
-
-# cat /etc/gtk-3.0/settings.ini
-# [Settings]
-# gtk-theme-name = elementary
-# gtk-icon-theme-name = elementary
-# gtk-fallback-icon-theme = gnome
-# gtk-sound-theme-name = ubuntu
-# gtk-icon-sizes = panel-menu-bar=24,24
-# gtk-font-name = Open Sans 9
-
-
+# wget everything
+wget -O zoom.deb "https://d11yldzmag5yn.cloudfront.net/prod/5.1.422789.0705/zoom_amd64.deb?_x_zm_rtaid=Yepa1F_WTXifdyCPlRxTVQ.1595005181274.70913d864e0a64b6dc9fabf5"
+wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 # NVIDIA DRIVER
 sudo add-apt-repository ppa:graphics-drivers/ppa
@@ -29,7 +13,13 @@ sudo apt-get install -y nvidia-driver-440
 # sudo apt-get install -y chrome-gnome-shell
 
 # Chrome
-sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+sudo apt-get install -y ./chrome.deb
+
+# zoom
+sudo apt install -y ./zoom.deb
+
+# # sdk manager
+# sudo apt install -y ./sdkmanager_1.2.0-6738_amd64.deb
 
 # Slack
 sudo snap install slack --classic
@@ -64,9 +54,3 @@ sudo apt-get install -y gparted
 
 # Spotify
 snap install spotify
-
-# zoom
-sudo apt install -y ./zoom_amd64.deb
-
-# sdk manager
-sudo apt install -y ./sdkmanager_1.2.0-6738_amd64.deb
