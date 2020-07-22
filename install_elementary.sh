@@ -18,6 +18,7 @@ echo GTK_THEME=elementary:dark subl
 sudo apt-get install -y xbacklight
 
 # Acceleration Profile for Trackpoint
+# device='TPPS/2 Elan TrackPoint'
 # xinput set-prop "$device" 'libinput Accel Profile Enabled' {0,1}
 # xinput set-prop "$device" 'libinput Accel Speed' 0.5
 
