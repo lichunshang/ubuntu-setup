@@ -13,7 +13,14 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd v)"
 sudo cp -R -u -p ${SCRIPT_DIR}/icons /usr/share
 sudo cp -R -u -p ${SCRIPT_DIR}/fonts /usr/share
 
-sudo apt-get update
+if ! command -v code &> /dev/null
+then
+	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+	sudo apt update
+	sudo apt install code
+fi
+
 sudo apt-get install -y wget
 sudo apt-get install -y htop
 sudo apt-get install -y ros-${ROS_DISTRO}-rqt*
@@ -30,10 +37,3 @@ sudo apt install -y nautilus
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 sudo sysctl -p
 cat /proc/sys/fs/inotify/max_user_watches
-
-if ! command -v vscode &> /dev/null
-then
-	wget -O vscode.deb https://az764295.vo.msecnd.net/stable/17299e413d5590b14ab0340ea477cdd86ff13daf/code_1.47.2-1594837870_amd64.deb
-	sudo apt-get install -y ./vscode.deb
-	code --install-extension Shan.code-settings-sync
-fi
